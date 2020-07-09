@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1617F84-FC17-4F7B-971F-6961CD7837C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SAPIntegrationUtility.My.MyApplication</StartupObject>
+    <RootNamespace>SAPIntegrationUtility</RootNamespace>
+    <AssemblyName>SAPIntegrationUtility</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SAPIntegrationUtility.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SAPIntegrationUtility.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>apptech.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Sap.Data.Hana.v3.5">
+      <HintPath>..\..\..\..\..\..\Downloads\Sap.Data.Hana.v3.5\Sap.Data.Hana.v3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationConfigurationForm.Designer.vb">
+      <DependentUpon>ApplicationConfigurationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationConfigurationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Class\APPRegistry.vb" />
+    <Compile Include="Class\APP_DotNet.vb" />
+    <Compile Include="Class\APP_HANADb.vb" />
+    <Compile Include="Class\APP_SqlDB.vb" />
+    <Compile Include="Class\ConfigFunctions.vb" />
+    <Compile Include="DBConfigForm.Designer.vb">
+      <DependentUpon>DBConfigForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DBConfigForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationAPIConfig.Designer.vb">
+      <DependentUpon>IntegrationAPIConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationAPIConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationDatabaseConfig.Designer.vb">
+      <DependentUpon>IntegrationDatabaseConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationDatabaseConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationFileLocationConfig.Designer.vb">
+      <DependentUpon>IntegrationFileLocationConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationFileLocationConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationMappingConfiguration.Designer.vb">
+      <DependentUpon>IntegrationMappingConfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationConfig\IntegrationMappingConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationConfig\ModuleConfiguration.Designer.vb">
+      <DependentUpon>ModuleConfiguration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationConfig\ModuleConfiguration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPCM - Outbound.Designer.vb">
+      <DependentUpon>frmAPCM - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPCM - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPCM - Inbound.Designer.vb">
+      <DependentUpon>frmAPCM - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPCM - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPInvoice - Outbound.Designer.vb">
+      <DependentUpon>frmAPInvoice - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPInvoice - Outbound.vb">
+      <CustomToolNamespace>D:\Backup for New Laptop\Jayson For Backup\Project Related\Jayson Projects\APPTECH\SAPIntegrationUtility\IntegrationForms\frmAPInvoice - Inbound.vb</CustomToolNamespace>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPInvoice - Inbound.Designer.vb">
+      <DependentUpon>frmAPInvoice - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmAPInvoice - Inbound.vb">
+      <SubType>Form</SubType>
+      <CustomToolNamespace>D:\Backup for New Laptop\Jayson For Backup\Project Related\Jayson Projects\APPTECH\SAPIntegrationUtility\IntegrationForms\frmAPInvoice - Inbound.vb</CustomToolNamespace>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARCM - Outbound.Designer.vb">
+      <DependentUpon>frmARCM - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARCM - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARCM - Inbound.Designer.vb">
+      <DependentUpon>frmARCM - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARCM - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARInvoice - Outbound.Designer.vb">
+      <DependentUpon>frmARInvoice - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARInvoice - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARInvoice - Inbound.Designer.vb">
+      <DependentUpon>frmARInvoice - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmARInvoice - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBOM - Outbound.Designer.vb">
+      <DependentUpon>frmBOM - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBOM - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBOM - Inbound.Designer.vb">
+      <DependentUpon>frmBOM - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBOM - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBPMaster - Outbound.Designer.vb">
+      <DependentUpon>frmBPMaster - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBPMaster - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBPMaster - Inbound.Designer.vb">
+      <DependentUpon>frmBPMaster - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmBPMaster - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmDelivery - Outbound.Designer.vb">
+      <DependentUpon>frmDelivery - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmDelivery - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmDelivery - Inbound.Designer.vb">
+      <DependentUpon>frmDelivery - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmDelivery - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGI - Outbound.Designer.vb">
+      <DependentUpon>frmGI - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGI - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGI - Inbound.Designer.vb">
+      <DependentUpon>frmGI - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGI - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGR - Outbound.Designer.vb">
+      <DependentUpon>frmGR - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGR - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGR - Inbound.Designer.vb">
+      <DependentUpon>frmGR - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGR - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGRPO - Outbound.Designer.vb">
+      <DependentUpon>frmGRPO - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGRPO - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGRPO - Inbound.Designer.vb">
+      <DependentUpon>frmGRPO - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmGRPO - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmIT - Outbound.Designer.vb">
+      <DependentUpon>frmIT - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmIT - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmIT - Inbound.Designer.vb">
+      <DependentUpon>frmIT - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmIT - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmItemMasterData - Outbound.Designer.vb">
+      <DependentUpon>frmItemMasterData - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmItemMasterData - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmItemMasterData - Inbound.Designer.vb">
+      <DependentUpon>frmItemMasterData - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmItemMasterData - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmITR - Outbound.Designer.vb">
+      <DependentUpon>frmITR - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmITR - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmITR - Inbound.Designer.vb">
+      <DependentUpon>frmITR - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmITR - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPO - Outbound.Designer.vb">
+      <DependentUpon>frmPO - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPO - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPO - Inbound.Designer.vb">
+      <DependentUpon>frmPO - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPO - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPR - Outbound.Designer.vb">
+      <DependentUpon>frmPR - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPR - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPR - Inbound.Designer.vb">
+      <DependentUpon>frmPR - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPR - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPurchaseReturn - Outbound.Designer.vb">
+      <DependentUpon>frmPurchaseReturn - Outbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPurchaseReturn - Outbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPurchaseReturn - Inbound.Designer.vb">
+      <DependentUpon>frmPurchaseReturn - Inbound.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationForms\frmPurchaseReturn - Inbound.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MappingFieldModuleForm.Designer.vb">
+      <DependentUpon>MappingFieldModuleForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MappingFieldModuleForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\global_.vb" />
+    <Compile Include="Modules\Main.vb" />
+    <Compile Include="Modules\UIFunctions.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplicationConfigurationForm.resx">
+      <DependentUpon>ApplicationConfigurationForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBConfigForm.resx">
+      <DependentUpon>DBConfigForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationConfig\IntegrationAPIConfig.resx">
+      <DependentUpon>IntegrationAPIConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationConfig\IntegrationDatabaseConfig.resx">
+      <DependentUpon>IntegrationDatabaseConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationConfig\IntegrationFileLocationConfig.resx">
+      <DependentUpon>IntegrationFileLocationConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationConfig\IntegrationMappingConfiguration.resx">
+      <DependentUpon>IntegrationMappingConfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationConfig\ModuleConfiguration.resx">
+      <DependentUpon>ModuleConfiguration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmAPCM - Outbound.resx">
+      <DependentUpon>frmAPCM - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmAPCM - Inbound.resx">
+      <DependentUpon>frmAPCM - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmAPInvoice - Outbound.resx">
+      <DependentUpon>frmAPInvoice - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmAPInvoice - Inbound.resx">
+      <DependentUpon>frmAPInvoice - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmARCM - Outbound.resx">
+      <DependentUpon>frmARCM - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmARCM - Inbound.resx">
+      <DependentUpon>frmARCM - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmARInvoice - Outbound.resx">
+      <DependentUpon>frmARInvoice - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmARInvoice - Inbound.resx">
+      <DependentUpon>frmARInvoice - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmBOM - Outbound.resx">
+      <DependentUpon>frmBOM - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmBOM - Inbound.resx">
+      <DependentUpon>frmBOM - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmBPMaster - Outbound.resx">
+      <DependentUpon>frmBPMaster - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmBPMaster - Inbound.resx">
+      <DependentUpon>frmBPMaster - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmDelivery - Outbound.resx">
+      <DependentUpon>frmDelivery - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmDelivery - Inbound.resx">
+      <DependentUpon>frmDelivery - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGI - Outbound.resx">
+      <DependentUpon>frmGI - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGI - Inbound.resx">
+      <DependentUpon>frmGI - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGR - Outbound.resx">
+      <DependentUpon>frmGR - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGR - Inbound.resx">
+      <DependentUpon>frmGR - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGRPO - Outbound.resx">
+      <DependentUpon>frmGRPO - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmGRPO - Inbound.resx">
+      <DependentUpon>frmGRPO - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmIT - Outbound.resx">
+      <DependentUpon>frmIT - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmIT - Inbound.resx">
+      <DependentUpon>frmIT - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmItemMasterData - Outbound.resx">
+      <DependentUpon>frmItemMasterData - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmItemMasterData - Inbound.resx">
+      <DependentUpon>frmItemMasterData - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmITR - Outbound.resx">
+      <DependentUpon>frmITR - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmITR - Inbound.resx">
+      <DependentUpon>frmITR - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPO - Outbound.resx">
+      <DependentUpon>frmPO - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPO - Inbound.resx">
+      <DependentUpon>frmPO - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPR - Outbound.resx">
+      <DependentUpon>frmPR - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPR - Inbound.resx">
+      <DependentUpon>frmPR - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPurchaseReturn - Outbound.resx">
+      <DependentUpon>frmPurchaseReturn - Outbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegrationForms\frmPurchaseReturn - Inbound.resx">
+      <DependentUpon>frmPurchaseReturn - Inbound.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MappingFieldModuleForm.resx">
+      <DependentUpon>MappingFieldModuleForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonGradient.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="apptech.ico" />
+    <None Include="Resources\APPTech_Logo_Trans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SAPbobsCOM">
+      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30090}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
